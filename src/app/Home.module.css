@@ -1,0 +1,56 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6rem;
+    min-height: 100vh;
+  }
+  
+  .NavBarCon{
+    position: fixed;
+    padding: 20px 30px;
+    background-color: #212121;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logoCon{
+    background-color: #212121;
+    border: none;
+  }
+  
+  .searchBox{
+    width: 450px;
+    height: 40px;
+  }
+  
+  .searchBoxInput{
+    width: 75%;
+    height: 100%;
+    background-color: #121212;
+    color: #AAAAAA;
+    border: none;
+    padding-left: 10px;
+  }
+  
+  .searchLogo{
+    background-color: #303030;
+    width: 13%;
+    height: 100%;
+    border: none;
+    color: #FFFFFF;
+  }
+  
+  .micLogo{
+    margin-left: 5px;
+    background-color: #000000;
+    border: none;
+    border-radius: 50%;
+    color: #FFFFFF;
+    height: 45px;
+    width: 10%;
+  }
