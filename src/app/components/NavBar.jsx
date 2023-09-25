@@ -1,14 +1,14 @@
-import React from 'react'
+
 import Image from 'next/image';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { BsSearch } from 'react-icons/bs';
 import { FaMicrophone } from 'react-icons/fa';
 
-export const NavBar = () => {
+export const NavBar = ({ setMenu }) => {
     return (
         <div className='flex justify-between items-center fixed py-[20px] px-[30px] bg-[#212121] w-full h-[60px]'>
             <div className='flex gap-5'>
-                <button className='bg-[#212121] border-none'>
+                <button className='bg-[#212121] border-none' onClick={() => setMenu((olddMenu) => !olddMenu)}>
                     < GiHamburgerMenu style={{ color: '#FFFFFF', width: '25px', height: '25px' }} />
                 </button>
                 <a href="#" className='mt-[5px]'>
@@ -35,6 +35,6 @@ export const NavBar = () => {
                     <Image src='/profile.svg' alt='profile' width={30} height={30} />
                 </button>
             </div>
-        </div>
+        </div >
     )
 }
