@@ -14,7 +14,7 @@ export default function Home() {
       <NavBar setMenu={setMenu} />
       <main className="flex min-h-screen pt-[55px]">
         {menu && <SideBar />}
-        <div className='flex flex-col'>
+        <div className='flex flex-col w-[85%]'>
             <Filter />
             <Thumbnail />
         </div>

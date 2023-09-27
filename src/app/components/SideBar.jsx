@@ -4,7 +4,7 @@ import { SideBarData1, SideBarData2, SideBarData3 } from "./SideBarData";
 
 export default function SideBar() {
     return (
-        <div className='bg-[#212121] w-[20%] h-screen overflow-x-hidden overflow-y-scroll pt-[10px]'>
+        <div className='bg-[#212121] w-[15%] h-screen overflow-x-hidden overflow-y-scroll pt-[10px]'>
             <ul className='flex flex-col bg-[#212121] '>
                 {SideBarData1.map((value, key) => (
                     <li key={key} className='flex justify-center items-center py-[20px] h-[50px]  hover:bg-[#303030] cursor-pointer'>
