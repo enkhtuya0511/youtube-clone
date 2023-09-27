@@ -4,6 +4,7 @@ import { NavBar } from './components/NavBar'
 import React, { useState } from 'react'
 import SideBar from './components/SideBar'
 import Thumbnail from './components/Thumbnail'
+import Filter from './components/Filter'
 
 export default function Home() {
   const [menu, setMenu] = useState(true)
@@ -11,9 +12,12 @@ export default function Home() {
   return (
     <>
       <NavBar setMenu={setMenu} />
-      <main className="flex min-h-screen pt-[60px]">
+      <main className="flex min-h-screen pt-[55px]">
         {menu && <SideBar />}
-        <Thumbnail />
+        <div className='flex flex-col'>
+            <Filter />
+            <Thumbnail />
+        </div>
       </main>
     </>
   )

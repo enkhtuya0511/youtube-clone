@@ -1,60 +1,106 @@
 import React from 'react'
 
-export const SideBarData = [
+export const SideBarData1 = [
     {
         "title": "Home",
         "icon": "./home.svg",
-        "youtuber": "James Gouse",
-        "avatar": './avatar.svg',
-        "text": "Youtube Premium",
     },
     {
         "title": "Explore",
         "icon": `./explore.svg`,
-        "youtuber": "Alan Cooper",
-        "avatar": './avatar.svg',
-        "text": "Gaming",
     },
     {
         "title": "Subscriptions",
         "icon": "./sub.svg",
-        "youtuber": "Marcus Levin",
-        "avatar": './avatar.svg',
-        "text": "Live",
     },
     {
         "title": "Library",
         "icon": "./library.svg",
-        "youtuber": "Alexis Sears",
-        "avatar": './avatar.svg',
-        "text": "Sports",
     },
     {
         "title": "History",
         "icon": "./history.svg",
-        "youtuber": "Jesica Lambert",
-        "avatar": './avatar.svg',
-        "text": "Settings",
     },
     {
         "title": "Your Videos",
         "icon": "./yourVideos.svg",
-        "youtuber": "Anna White",
-        "avatar": './avatar.svg',
-        "text": "Report history",
     },
     {
         "title": "Watch Later",
         "icon": "./watchLater.svg",
-        "youtuber": "Skylar Dias",
-        "avatar": './avatar.svg',
-        "text": "Help",
     },
     {
         "title": "Liked Videos",
         "icon": "./liked-videos.svg",
+    },
+]
+
+export const SideBarData2 = [
+    {
+        "youtuber": "James Gouse",
+        "avatar": './avatar.svg',
+    },
+    {
+        "youtuber": "Alan Cooper",
+        "avatar": './avatar.svg',
+    },
+    {
+        "youtuber": "Marcus Levin",
+        "avatar": './avatar.svg',
+    },
+    {
+        "youtuber": "Alexis Sears",
+        "avatar": './avatar.svg',
+    },
+    {
+        "youtuber": "Jesica Lambert",
+        "avatar": './avatar.svg',
+    },
+    {
+        "youtuber": "Anna White",
+        "avatar": './avatar.svg',
+    },
+    {
+        "youtuber": "Skylar Dias",
+        "avatar": './avatar.svg',
+    },
+    {
         "youtuber": "Faline San",
         "avatar": './avatar.svg',
-        "text": "Send feedback",
+    },
+]
+
+export const SideBarData3 = [
+    {
+        "title": "Youtube Premium",
+        "icon": "./youtube.svg",
+    },
+    {
+        "title": "Gaming",
+        "icon": "./gaming.svg",
+    },
+    {
+        "title": "Live",
+        "icon": "./live.svg",
+    },
+    {
+        "title": "Sports",
+        "icon": "./sports.svg",
+    },
+    {
+        "title": "Settings",
+        "icon": "./settings.svg",
+    },
+    {
+        "title": "Report history",
+        "icon": "./report.svg",
+    },
+    {
+        "title": "Help",
+        "icon": "./help.svg",
+    },
+    {
+        "title": "Send feedback",
+        "icon": "./feedback.svg",
     },
 ]

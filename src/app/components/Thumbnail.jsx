@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Thumbnail() {
+const Thumbnail = () => {
   return (
-    <div className='w-[80%]'>Thumbnail</div>
+    <div className='w-full h-[90%] bg-[#AAAAAA]'>Thumbnail</div>
   )
 }
 
