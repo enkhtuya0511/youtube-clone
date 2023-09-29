@@ -6,7 +6,7 @@ import { FaMicrophone } from 'react-icons/fa';
 
 export const NavBar = ({ setMenu }) => {
     return (
-        <div className='flex justify-between items-center fixed py-[20px] px-[30px] bg-[#212121] w-full h-[60px]'>
+        <div className='flex justify-between items-center fixed top-[0] py-[20px] px-[30px] bg-[#212121] w-full h-[60px]'>
             <div className='flex gap-5'>
                 <button className='bg-[#212121] border-none' onClick={() => setMenu((olddMenu) => !olddMenu)}>
                     < GiHamburgerMenu style={{ color: '#FFFFFF', width: '25px', height: '25px' }} />

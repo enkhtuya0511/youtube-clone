@@ -5,11 +5,11 @@ import Link from 'next/link'
 
 const Thumbnail = () => {
   return (
-    <div className='w-full h-[100%] flex flex-wrap gap-[20px] bg-[#000000] p-[20px]'>
+    <div className='min-w-screen h-[100%] flex flex-wrap gap-[20px] bg-[#000000] p-[40px]'>
       {
         ThumbnailData.map((value, key) => (
-          <Link href={value.url} className='h-[240px] w-[270px]'>
-            <div key={key} className='bg-[#FFFFFF]'>
+          <div key={key} className='bg-[#FFFFFF] h-[240px] w-[270px]'>
+            <Link href='/video'>
               <Image src={value.image} width={270} height={150} />
               <div className='w-[100%] flex justify-center items-center p-[10px] gap-[10px] bg-[#000000]'>
                 <div className='w-[20%] flex '>
@@ -23,8 +23,8 @@ const Thumbnail = () => {
                   <div className='text-[13px]'>{value.time}</div>
                 </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
         ))
       }
     </div>
