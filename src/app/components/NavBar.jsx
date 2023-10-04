@@ -4,16 +4,26 @@ import { BsSearch } from 'react-icons/bs';
 import { FaMicrophone } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import { SecondaryData } from './SecondaryData';
+import { useRouter } from 'next/navigation';
 
 export const NavBar = ({ setMenu }) => {
-    const [search, setSearch] = useState('')
-    // const searchF = () => {
-    //     SecondaryData.filter((data, id) => {
-    //         if (data === search) {
-                
-    //         }
-    //     })
-    // }
+    const router = useRouter();
+    const handleClick = (videoId) => {
+        router.push('watch?v=' + videoId)
+    }
+
+    //search
+    const [search, setSearch] = useState('');
+    const searchF = () => {
+        const lol = SecondaryData.filter((value, id) => value.title.toLowerCase().includes(search)).map((value, id) => {
+            return (
+                <li key={id} className='bg-[#FFFFFF] p-[7px]' onClick={() => handleClick(value.videoId)}>{value.title}</li>
+            )
+        }
+
+        )
+        console.log(lol)
+    }
     return (
         <div className='flex justify-between items-center fixed top-[0] py-[20px] px-[30px] bg-[#212121] w-full h-[60px]'>
             <div className='flex gap-5'>
@@ -34,7 +44,7 @@ export const NavBar = ({ setMenu }) => {
                         if (e.key === 'Enter') return searchF()
                     }}
                 />
-                <button className='flex justify-center items-center bg-[#303030] h-full border-none text-[#FFFFFF] w-[58px]' >< BsSearch /></button>
+                <button className='flex justify-center items-center bg-[#303030] h-full border-none text-[#FFFFFF] w-[58px]'>< BsSearch /></button>
                 <button className='flex justify-center items-center bg-[#000000] border-none text-[#FFFFFF] h-[45px] rounded-[50%] ml-[7px] w-[40px]'>< FaMicrophone /></button>
             </div>
             <div className='flex gap-[17px]'>

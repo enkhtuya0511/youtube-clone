@@ -1,17 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from "next/image";
-import Link from 'next/link';
 import { SecondaryData } from './SecondaryData';
 import Button from './Button';
 import { useRouter } from 'next/navigation'
 
 const Secondary = () => {
-    const router = useRouter()
+    const router = useRouter();
     const handleClick = (videoId) => {
         router.push('watch?v=' + videoId)
     }
     return (
-        <div className="w-[30%] flex flex-col p-[5px] text-[#FFFFFF] overflow-auto">
+        <div className="w-[90%] flex flex-col p-[5px] text-[#FFFFFF] overflow-auto">
             <div className='flex gap-[10px] text-[14px] p-[10px]'>
                 <button className='bg-[#FFFFFF] rounded-[32px] border-[1px] 
                 p-[10px] flex items-center text-center text-[#030303]'>All</button>
