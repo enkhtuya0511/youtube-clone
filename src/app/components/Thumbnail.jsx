@@ -1,10 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
-import { SecondaryData } from './SecondaryData'
+import { videoData } from './videoData'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-const Thumbnail = ({data}) => {
+const Thumbnail = ({video}) => {
   const router = useRouter()
   const handleClick = (videoId) => {
     router.push('watch?v=' + videoId)
@@ -13,8 +13,8 @@ const Thumbnail = ({data}) => {
   return (
     <div className='min-w-screen h-[100%] flex flex-wrap gap-[20px] bg-[#000000] p-[40px]'>
       {
-        SecondaryData.map((value, key) => (
-          <div key={key} className='bg-[#FFFFFF] h-[240px] w-[270px]' onClick={() => handleClick(value.videoId)}>
+        video.map((value, key) => (
+          <div index={key} className='bg-[#FFFFFF] h-[240px] w-[270px]' onClick={() => handleClick(value.videoId)}>
             <Image src={value.videoThumbnail} width={270} height={150} alt='video' />
             <div className='w-[100%] flex justify-center items-center p-[10px] gap-[10px] bg-[#000000]'>
               <div className='w-[20%] flex '>
