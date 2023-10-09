@@ -2,13 +2,14 @@ import React from 'react'
 import Image from 'next/image'
 import { ThumbnailData } from './ThumbnailData'
 import Link from 'next/link'
+import video from '../pages/video'
 
 const Thumbnail = () => {
   return (
     <div className='w-full h-[100%] flex flex-wrap gap-[20px] bg-[#000000] p-[20px]'>
       {
         ThumbnailData.map((value, key) => (
-          <Link href={value.url} className='h-[240px] w-[270px]'>
+          <Link href={<video />} className='h-[240px] w-[270px]'>
             <div key={key} className='bg-[#FFFFFF]'>
               <Image src={value.image} width={270} height={150} />
               <div className='w-[100%] flex justify-center items-center p-[10px] gap-[10px] bg-[#000000]'>
