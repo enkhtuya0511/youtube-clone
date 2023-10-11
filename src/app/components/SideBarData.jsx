@@ -1,4 +1,5 @@
 import React from 'react'
+import { HiOutlineLightBulb, HiOutlineMusicalNote, HiOutlineNewspaper } from 'react-icons/hi2';
 
 export const SideBarData1 = [
     {
@@ -102,5 +103,20 @@ export const SideBarData3 = [
     {
         "title": "Send feedback",
         "icon": "./feedback.svg",
+    },
+]
+
+export const SideBarData4 = [
+    {
+        'title': 'Learning',
+        'icon': <HiOutlineLightBulb className='w-[30px] h-[30px] basis-[30%] text-[#FFFFFF]'/>,
+    },
+    {
+        'title': 'News',
+        'icon': <HiOutlineNewspaper className='w-[30px] h-[30px] basis-[30%] text-[#FFFFFF]'/>,
+    },
+    {
+        'title': 'Music',
+        'icon': <HiOutlineMusicalNote className='w-[30px] h-[30px] basis-[30%] text-[#FFFFFF]'/>,
     },
 ]

@@ -13,7 +13,7 @@ const Thumbnail = ({item}) => {
   };
 
   return (
-    <div className="min-w-screen h-[100%] flex flex-wrap gap-[20px] bg-[#000000] p-[40px]">
+    <div className="w-min-screen h-[100%] flex flex-wrap gap-[20px] bg-[#000000] p-[40px]">
       {item.map((value, id) => (
         <div
           key={id}
@@ -43,8 +43,6 @@ const Thumbnail = ({item}) => {
               <div className="text-[13px]">{value["channel-name"]}</div>
               <div className="text-[13px]">{value.views}</div>
             </div>
-            <div className="text-[13px]">{value["channel-name"]}</div>
-            <div className="text-[13px]">{value.views}</div>
           </div>
         </div>
       ))}

@@ -18,7 +18,7 @@ export const NavBar = ({ setMenu, setInput}) => {
                 <button className='bg-[#212121] border-none' onClick={() => setMenu((olddMenu) => !olddMenu)}>
                     < GiHamburgerMenu style={{ color: '#FFFFFF', width: '25px', height: '25px' }} />
                 </button>
-                <a href="app/page.js" className='mt-[5px]'>
+                <a href="/home" className='mt-[5px]'>
                     <Image src='/youtube-logo.svg' alt='Youtube Logo' width={90} height={20} />
                 </a>
 

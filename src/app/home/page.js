@@ -9,10 +9,12 @@ import { videoData } from '../components/videoData'
 export default function Home() {
   const [menu, setMenu] = useState(true);
   const [item, setItems] = useState(videoData);
+  const [chosenFilter, setChosenFilter] = useState('');
   const buttons = [... new Set(videoData.map((val) => val['channel-name']))]
   const filterVideos = (channelName) => {
     const newVideos = videoData.filter((newVal) => newVal['channel-name'] === channelName);
     setItems(newVideos);
+    setChosenFilter(channelName)
   }
   // const [input, setInput] = useState('');
   // let updatedVideos = [...video];
@@ -35,8 +37,8 @@ export default function Home() {
         <NavBar setMenu={setMenu} />
         {menu && <SideBar />}
         <div className='flex flex-col w-[85%]'>
-          <Filter buttons={buttons} setItems={setItems} filterVideos={filterVideos}/>
-          <Thumbnail item={item}/>
+          <Filter buttons={buttons} setItems={setItems} filterVideos={filterVideos} chosenFilter={chosenFilter} />
+          <Thumbnail item={item} />
         </div>
       </main>
     </>

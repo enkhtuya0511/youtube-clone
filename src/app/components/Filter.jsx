@@ -1,9 +1,12 @@
 import React from "react";
-import { useState } from "react";
 import { videoData } from "./videoData";
+import { useState } from "react";
 
-const Filter = ({ buttons, setItems, filterVideos }) => {
-  // const [active, setActive] = useState(true);
+const Filter = ({ buttons, setItems, filterVideos, chosenFilter}) => {
+  // const [active, setActive] = useState(0);
+  // const All = () => {
+  //   setActive(!active);
+  // }
   return (
     <div className='w-full h-[5%] bg-[#212121] p-[10px] flex gap-[15px] pl-[20px] overflow-auto hover:overflow-scroll"'>
       <button
@@ -14,8 +17,8 @@ const Filter = ({ buttons, setItems, filterVideos }) => {
           border: "1px",
           padding: "8px",
           textAlign: "center",
-          backgroundColor: "#FFFFFF",
-          color: "#000000",
+          backgroundColor: '#000000',
+          color: '#FFFFFF',
         }}
         onClick={() => setItems(videoData)}
       >
@@ -32,8 +35,8 @@ const Filter = ({ buttons, setItems, filterVideos }) => {
               border: "1px",
               padding: "8px",
               textAlign: "center",
-              backgroundColor: "#000000",
-              color: "#FFFFFF",
+              backgroundColor: chosenFilter === val ? '#FFFFFF' : "#000000",
+              color: chosenFilter === val ? '#000000' : "#FFFFFF",
             }}
             onClick={() => filterVideos(val)}
           >

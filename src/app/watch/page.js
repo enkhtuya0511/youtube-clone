@@ -19,6 +19,9 @@ export default function Home() {
   const [menu, setMenu] = useState(true);
   const [data, setData] = useState('');
   const [loading, setLoading] = useState(true);
+  const [sub, setSub] = useState(false);
+  const [show, setShow] = useState(false);
+  const [comment, setComment] = useState('');
 
   const router = useRouter();
   const handleClick = (videoId) => {
@@ -37,6 +40,11 @@ export default function Home() {
     setLoading(false);
   }
 
+  const addComment = (com) => {
+    const date = new Date();
+     
+  }
+
   useEffect(() => {
     setIsClient(true);
     fetchData();
@@ -45,7 +53,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-[#121212]">
       <NavBar setMenu={setMenu} />
-      {loading ? <div className="bg-[#FFFFFF] text-[#000000]">Loading...</div> :
+      {loading ? <div className="bg-[#FFFFFF] text-[#000000] w-[100%] h-[100%]">Loading...</div> :
         <div className="flex justify-center items-center min-w-screen p-[20px]">
           <div className="flex flex-col justify-center items-center p-[10px] ">
             {isClient && (
@@ -97,10 +105,12 @@ export default function Home() {
                     <p className="text-[#AAAAAA] text-[13px]">4.87M subscribers</p>
                   </div>
                 </div>
-                <button className="bg-[#CC0000] h-[35px] w-[110px] p-[5px]">Subscribe</button>
+                <button onClick={() => setSub(!sub)}
+                  className="bg-[#CC0000] h-[35px] w-[110px] p-[5px]">{sub ? 'Subscribe' : 'Subscribed'}</button>
               </div>
               <div className="pl-[65px] pt-[10px]">
-                <p>{data.items?.[0].snippet?.description}</p>
+                <p className={show ? 'line-clamp-3' : 'line-clamp-none'}>{data.items?.[0].snippet?.description}</p>
+                <div onClick={() => setShow(!show)} className='text-[#FFFFFF] basis-[70%] font-bold'>{show ? '...more' : 'Show less'}</div>
               </div>
               <div className="flex gap-[25px] pt-[25px]">
                 <h1>{data.items?.[0].statistics.commentCount} Comments</h1>
@@ -111,8 +121,28 @@ export default function Home() {
               </div>
               <div className="flex pt-[20px] gap-[15px]">
                 <Image src='/profile.svg' width={40} height={40} alt="profile" />
-                <input type="text" placeholder="Add a public comment..." className="border-0 bg-[#121212]" />
+                <input type="text" placeholder="Add a public comment..." className="border-0 bg-[#121212]"
+                  onKeyDown={(e) => { if (e.key === 'Enter') return addComment(e.target.value) }} />
               </div>
+              {/*comment  */}
+              <div className="flex pt-[5px] mt-[10px] gap-[15px]">
+                <Image src='https://yt3.ggpht.com/ytc/APkrFKaylJ4G0J7V_ugValHwglVza4rvy1DLIlsfGIGWDw=s88-c-k-c0x00ffffff-no-rj'
+                  className='rounded-[50%] w-[40px] h-[40px]' width={40} height={40} alt="profile" />
+                <div className="flex flex-col text-[#FFFFFF] gap-[3px]">
+                  <div className="flex gap-[10px]">
+                    <h3 className="font-bold">@RayMak</h3>
+                    <h3 className="text-[#AAAAAA]">1 year ago</h3>
+                  </div>
+                  <p>Cat clearly not happy with his weight but super happy with food</p>
+                </div>
+              </div>
+              <div className="flex items-center pl-[55px] gap-[10px] ">
+                <BiLike className="cursor-pointer" />
+                <h3 className="text-[#AAAAAA]">13K</h3>
+                <BiDislike className="cursor-pointer" />
+                <h3 className="p-[3px] rounded-[50px] text-[#AAAAAA] cursor-pointer hover:bg-[#E1E1E1]">Reply</h3>
+              </div>
+
             </div>
           </div>
 

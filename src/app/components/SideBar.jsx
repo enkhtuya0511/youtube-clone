@@ -1,28 +1,49 @@
 import React from 'react'
 import Image from 'next/image';
-import { SideBarData1, SideBarData2, SideBarData3 } from "./SideBarData";
+import { SideBarData1, SideBarData2, SideBarData3, SideBarData4 } from "./SideBarData";
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
+import { useState } from 'react';
 
 export default function SideBar() {
+    const [show, setShow] = useState(false);
     return (
         <div className='bg-[#212121] w-[15%] h-screen overflow-x-hidden overflow-y-scroll pt-[10px]'>
             <ul className='flex flex-col bg-[#212121] '>
-                {SideBarData1.map((value, key) => (
-                    <li key={key} className='flex justify-center items-center py-[20px] h-[50px]  hover:bg-[#303030] cursor-pointer'>
-                        <Image src={value.icon} width={30} height={30} className='basis-[30%] w-[30px] h-[30px]' alt='icon'/>
+                {SideBarData1.map((value, id) => (
+                    <li key={id} className='flex justify-center items-center py-[20px] h-[50px]  hover:bg-[#303030] cursor-pointer'>
+                        <Image src={value.icon} width={30} height={30} className='basis-[30%] w-[30px] h-[30px]' alt='icon' />
                         <div className='text-[#FFFFFF] basis-[70%]'>{value.title}</div>
                     </li>
                 ))}
+                {show ? SideBarData4.map((val, id) => (
+                        <li key={id} className='flex justify-center items-center py-[20px] h-[50px]  hover:bg-[#303030] cursor-pointer'>
+                            {val.icon}
+                            <div className='text-[#FFFFFF] basis-[70%]'>{val.title}</div>
+                        </li>
+                    )) 
+                    : ''
+                }
+                
+                <li onClick={() => setShow(!show)} 
+                    className='flex justify-center items-center py-[20px] h-[50px]  hover:bg-[#303030] cursor-pointer'>
+                    {show ? 
+                    <MdKeyboardArrowUp className='w-[30px] h-[30px] basis-[30%] text-[#FFFFFF]'/> 
+                    : 
+                    <MdKeyboardArrowDown className='w-[30px] h-[30px] basis-[30%] text-[#FFFFFF]' />}
+
+                    <div className='text-[#FFFFFF] basis-[70%]'>{show ? 'Show less' : 'Show more'}</div>
+                </li>
                 <h3 className='text-[#AAAAAA] text-left py-[20px] px-[20px]'>SUBSCRIPTIONS</h3>
-                {SideBarData2.map((value, key) => (
-                    <li key={key} className='flex justify-center items-center py-[20px] h-[50px]  hover:bg-[#303030] cursor-pointer'>
-                        <Image src={value.avatar} width={30} height={30} className='basis-[30%] w-[30px] h-[30px]' alt='avatar'/>
+                {SideBarData2.map((value, id) => (
+                    <li key={id} className='flex justify-center items-center py-[20px] h-[50px]  hover:bg-[#303030] cursor-pointer'>
+                        <Image src={value.avatar} width={30} height={30} className='basis-[30%] w-[30px] h-[30px]' alt='avatar' />
                         <div className='text-[#FFFFFF] basis-[70%]'>{value.youtuber}</div>
                     </li>
                 ))}
                 <h3 className=' text-[#AAAAAA] text-left py-[20px] px-[20px]'>MORE FROM YOUTUBE</h3>
-                {SideBarData3.map((value, key) => (
-                    <li key={key} className='flex justify-center items-center py-[20px] h-[50px]  hover:bg-[#303030] cursor-pointer'>
-                        <Image src={value.icon} width={30} height={30} className='basis-[30%] w-[30px] h-[30px]' alt='icon'/>
+                {SideBarData3.map((value, id) => (
+                    <li key={id} className='flex justify-center items-center py-[20px] h-[50px]  hover:bg-[#303030] cursor-pointer'>
+                        <Image src={value.icon} width={30} height={30} className='basis-[30%] w-[30px] h-[30px]' alt='icon' />
                         <div className='text-[#FFFFFF] basis-[70%]'>{value.title}</div>
                     </li>
                 ))}
