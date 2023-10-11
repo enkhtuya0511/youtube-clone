@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { SecondaryData } from './videoData';
 import { useRouter } from 'next/navigation';
 
-export const NavBar = ({ setMenu, setSearch}) => {
+export const NavBar = ({ setMenu, setInput}) => {
     const router = useRouter();
     const handleClick = (videoId) => {
         router.push('watch?v=' + videoId)
@@ -27,10 +27,10 @@ export const NavBar = ({ setMenu, setSearch}) => {
                 <input type="text"
                     placeholder='Search'
                     className='border-none bg-[#121212] w-[290px] h-full text-[#AAAAAA] pe-[10px] ps-[10px]'
-                    onChange={(e) => setSearch(e.target.value)}
-                    onKeyDown={(e) => {
-                        if (e.key === 'Enter') return setSearch(e.target.value)
-                    }}
+                    // onChange={() => }
+                    // onKeyDown={(e) => {
+                    //     if (e.key === 'Enter') return setSearch(e.target.value)
+                    // }}
                 />
                 <button className='flex justify-center items-center bg-[#303030] h-full border-none text-[#FFFFFF] w-[58px]'>< BsSearch /></button>
                 <button className='flex justify-center items-center bg-[#000000] border-none text-[#FFFFFF] h-[45px] rounded-[50%] ml-[7px] w-[40px]'>< FaMicrophone /></button>

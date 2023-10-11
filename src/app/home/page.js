@@ -8,35 +8,35 @@ import { videoData } from '../components/videoData'
 
 export default function Home() {
   const [menu, setMenu] = useState(true);
-  const [video, setVideo] = useState(videoData);
-  const [search, setSearch] = useState('');
-  let updatedVideos = [...video];
+  const [item, setItems] = useState(videoData);
+  const buttons = [... new Set(videoData.map((val) => val['channel-name']))]
+  const filterVideos = (channelName) => {
+    const newVideos = videoData.filter((newVal) => newVal['channel-name'] === channelName);
+    setItems(newVideos);
+  }
+  // const [input, setInput] = useState('');
+  // let updatedVideos = [...video];
   // filteredVideos.filter((value, id) => {return ( value.title.toLowerCase().includes(search)) })
 
-  useEffect((search) => {
-    updatedVideos.filter((val, id) => {
-      if (search === val.title.toLowerCase()) {
-        return setVideo(updatedVideos);
-      } else {
-        setVideo('');
-        console.log('TvT');
-      }
-    })
-  }, [])
+  // useEffect((search) => {
+  //   updatedVideos.filter((val, id) => {
+  //     if (search === val.title.toLowerCase()) {
+  //       return setVideo(updatedVideos);
+  //     } else {
+  //       setVideo('');
+  //       console.log('TvT');
+  //     }
+  //   })
+  // }, [])
 
   return (
     <>
-<<<<<<< HEAD
-      <main className="flex min-h-screen pt-[55px] bg-[#212121]">
-      <NavBar setMenu={setMenu} />
-=======
       <main className="flex min-h-screen pt-[55px] bg-[#000000]">
-        <NavBar setMenu={setMenu} setSearch={setSearch} />
->>>>>>> 4f131aa2c1e9e395c196a0d35f63b644ae14eba2
+        <NavBar setMenu={setMenu} />
         {menu && <SideBar />}
         <div className='flex flex-col w-[85%]'>
-          <Filter />
-          <Thumbnail video={video} />
+          <Filter buttons={buttons} setItems={setItems} filterVideos={filterVideos}/>
+          <Thumbnail item={item}/>
         </div>
       </main>
     </>
