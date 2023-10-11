@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const SecondaryData = [
+export const videoData = [
     {
         'videoId': 'ZGElK1N_Xdk',
         'title':`Cat Can't Accept The Fact That He's Fat`,
