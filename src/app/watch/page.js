@@ -21,7 +21,10 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [sub, setSub] = useState(false);
   const [show, setShow] = useState(false);
-  const [comment, setComment] = useState('');
+  const [text, setText] = useState('');
+  const [comments, setComments] = useState([]);
+  const date = new Date();
+  const [like, setLike] = useState(false);
 
   const router = useRouter();
   const handleClick = (videoId) => {
@@ -40,16 +43,19 @@ export default function Home() {
     setLoading(false);
   }
 
-  const addComment = (com) => {
-    const date = new Date();
-     
+  const addComment = () => {
+    comments.push(text);
+    setText('');
+  }
+
+  const handleChange = (e) => {
+    setText(e.target.value);
   }
 
   useEffect(() => {
     setIsClient(true);
     fetchData();
   }, [search]);
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-[#121212]">
       <NavBar setMenu={setMenu} />
@@ -101,7 +107,8 @@ export default function Home() {
                 <div className="flex gap-[20px]">
                   <Image src='/avatar1.png' width={45} height={45} className="rounded-[50%]" alt="avatar" />
                   <div className="flex flex-col justify-end">
-                    <h1 className="text-[15px]">{data.items?.[0].snippet?.channelTitle}</h1>
+                    < a href="/pages"><h1 className="text-[15px]">{data.items?.[0].snippet?.channelTitle}</h1></a>
+
                     <p className="text-[#AAAAAA] text-[13px]">4.87M subscribers</p>
                   </div>
                 </div>
@@ -121,27 +128,38 @@ export default function Home() {
               </div>
               <div className="flex pt-[20px] gap-[15px]">
                 <Image src='/profile.svg' width={40} height={40} alt="profile" />
-                <input type="text" placeholder="Add a public comment..." className="border-0 bg-[#121212]"
-                  onKeyDown={(e) => { if (e.key === 'Enter') return addComment(e.target.value) }} />
+                <input type="text" value={text} placeholder="Add a public comment..." className="border-0 bg-[#121212]"
+                  onChange={handleChange} onKeyDown={(e) => { if (e.key === 'Enter') return addComment() }} />
+                <button onClick={() => setText('')}>cancel</button>
+                <button onClick={() => addComment()}>comment</button>
               </div>
-              {/*comment  */}
-              <div className="flex pt-[5px] mt-[10px] gap-[15px]">
-                <Image src='https://yt3.ggpht.com/ytc/APkrFKaylJ4G0J7V_ugValHwglVza4rvy1DLIlsfGIGWDw=s88-c-k-c0x00ffffff-no-rj'
-                  className='rounded-[50%] w-[40px] h-[40px]' width={40} height={40} alt="profile" />
-                <div className="flex flex-col text-[#FFFFFF] gap-[3px]">
-                  <div className="flex gap-[10px]">
-                    <h3 className="font-bold">@RayMak</h3>
-                    <h3 className="text-[#AAAAAA]">1 year ago</h3>
-                  </div>
-                  <p>Cat clearly not happy with his weight but super happy with food</p>
-                </div>
-              </div>
-              <div className="flex items-center pl-[55px] gap-[10px] ">
-                <BiLike className="cursor-pointer" />
-                <h3 className="text-[#AAAAAA]">13K</h3>
-                <BiDislike className="cursor-pointer" />
-                <h3 className="p-[3px] rounded-[50px] text-[#AAAAAA] cursor-pointer hover:bg-[#E1E1E1]">Reply</h3>
-              </div>
+
+              {comments.map((com, id) => {
+                return (
+                  <>
+                    <div key={id} className="flex pt-[5px] mt-[10px] gap-[15px]">
+                      <Image src='/profile.svg'
+                        className='rounded-[50%] w-[40px] h-[40px]' width={40} height={40} alt="profile" />
+                      <div className="flex flex-col text-[#FFFFFF] gap-[3px]">
+                        <div className="flex gap-[10px]">
+                          <h3 className="font-bold">@Enkhe</h3>
+                          <h3 className="text-[#AAAAAA]">{date.getHours() + ':' + date.getMinutes() + ' ' + date.toDateString()}</h3>
+                        </div>
+                        <p className="text-[#FFFFFF]">{com}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center pl-[55px] gap-[10px] ">
+
+                      <button onClick={() => setLike(!like)}>
+                        <BiLike className="cursor-pointer" />
+                      </button>
+                      <h3 className="text-[#AAAAAA]">{like ? '' : '1'}</h3>
+                      <BiDislike className="cursor-pointer" />
+                      <h3 className="p-[3px] rounded-[50px] text-[#AAAAAA] cursor-pointer hover:bg-[#E1E1E1]">Reply</h3>
+                    </div>
+                  </>
+                )
+              })}
 
             </div>
           </div>
@@ -152,7 +170,9 @@ export default function Home() {
               p-[10px] flex items-center text-center text-[#030303]'>All</button>
               <button className='bg-[#030303] rounded-[32px] border-[1px] 
               p-[10px] flex items-center text-center text-[#FFFFFF]'>From SBS TV동물농장x애니멀봐</button>
+
             </div>
+
             {
               videoData.map((value, key) => (
                 <div className="flex p-[5px] gap-[5px]"

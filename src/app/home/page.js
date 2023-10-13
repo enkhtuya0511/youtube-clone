@@ -17,12 +17,12 @@ export default function Home() {
     setChosenFilter(channelName)
   }
   // const [input, setInput] = useState('');
-  // let updatedVideos = [...video];
-  // filteredVideos.filter((value, id) => {return ( value.title.toLowerCase().includes(search)) })
+  // let updatedVideos = [...videoData];
+  // updatedVideos.filter((value, id) => {return ( value.title.toLowerCase().includes(input)) })
 
-  // useEffect((search) => {
+  // useEffect(() => {
   //   updatedVideos.filter((val, id) => {
-  //     if (search === val.title.toLowerCase()) {
+  //     if (input === val.title.toLowerCase()) {
   //       return setVideo(updatedVideos);
   //     } else {
   //       setVideo('');
