@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import video from "../pages/video";
+import video from "../page/video";
 import { useRouter } from "next/navigation";
 import { videoData } from "./videoData";
 import { useEffect, useState } from "react";
@@ -11,13 +11,15 @@ const Thumbnail = ({item}) => {
   const handleClick = (videoId) => {
     router.push("watch?v=" + videoId);
   };
-
+  const handleChange = (ChannelID) => {
+    router.push('@' + ChannelID);
+  }
   return (
     <div className="w-min-screen h-[100%] flex flex-wrap gap-[20px] bg-[#000000] p-[40px]">
       {item.map((value, id) => (
         <div
           key={id}
-          className="bg-[#FFFFFF] h-[240px] w-[270px]"
+          className='bg-[#FFFFFF] h-[240px] w-[270px]'
           onClick={() => handleClick(value.videoId)}
         >
           <Image
@@ -40,7 +42,8 @@ const Thumbnail = ({item}) => {
               <div>
                 <h2 className="text-[#FFFFFF] text-[14px]">{value.title}</h2>
               </div>
-              <div className="text-[13px]">{value["channel-name"]}</div>
+              <div onClick={() => handleChange(value.ChannelID)}
+              className="text-[13px]">{value["channel-name"]}</div>
               <div className="text-[13px]">{value.views}</div>
             </div>
           </div>
