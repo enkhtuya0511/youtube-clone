@@ -48,7 +48,7 @@ export default function Home() {
           <div className="flex flex-col items-center p-[10px] w-[70%]">
             {isClient && (
               <ReactPlayer
-                url={"https://www.youtube.com/watch?v=" + search}
+                url={"https://www.youtube-nocookie.com/watch?v=" + search}
                 controls
                 playing={true}
                 loop
